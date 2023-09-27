@@ -774,7 +774,7 @@ class WindowInt(QMainWindow):
                         if pixel_to_size is None and self.ui.checkBox_15.isChecked():
                             
                             pixel_to_size = dB / float(self.ui.lineEdit_26.text()) #2.47 # cm width 1.0cm (pixel_to_sizeA + pixel_to_sizeB)/2
-                            self.ui.lineEdit_38.setText(str(round(pixel_to_size, 2)))
+                            self.ui.lineEdit_38.setText(str(pixel_to_size))
                             #print ('pixel to size avarage', pixel_to_size)
                             #input('check 1')
                         # use pixel_to_size ratio to compute object size
@@ -1261,8 +1261,7 @@ class WindowInt(QMainWindow):
                     #    
                     writeWidthOut.write(str(mua) + '\t\t' +  str(round(distA, 3)) + '\t\t' +  str(round(distB, 3)) + '\n')
 
-########## Last point
-                #pixel_to_size = float(str(self.ui.lineEdit_38.text()))        
+########## Last point                
                 # middle last point 
                 cv2.circle(origskelet2, (int(x11), int(x22)), 15, (0, 0, 0), -1)
                 cv2.line(origskelet2, (int(fullLenghtBx), int(fullLenghtBy)), (int(x11), int(x22)),(0, 0, 0), 3)
@@ -1288,14 +1287,10 @@ class WindowInt(QMainWindow):
                 distSkeletCmScaleUpRightBound = distSkeletScaleUpRightBound / pixel_to_size                                
                 
 
-                #sumUpLnght = sumUpLnght + distSkeletCmScaleUp
-                sumUpLnght = distSkeletCmScaleUp
+                sumUpLnght = sumUpLnght + distSkeletCmScaleUp
                 
-                #sumUpLnghtLeft = sumUpLnghtLeft + distSkeletCmScaleUpLeftBound
-                #sumUpLnghtRight = sumUpLnghtRight + distSkeletCmScaleUpRightBound
-                sumUpLnghtLeft = distSkeletCmScaleUpLeftBound
-                sumUpLnghtRight = distSkeletCmScaleUpRightBound                
-                
+                sumUpLnghtLeft = sumUpLnghtLeft + distSkeletCmScaleUpLeftBound
+                sumUpLnghtRight = sumUpLnghtRight + distSkeletCmScaleUpRightBound
 
                 dB = dist.euclidean((x11left, x22left), (x11right, x22right))
                 distB = dB / pixel_to_size
