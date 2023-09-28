@@ -1,11 +1,11 @@
 # video_to_image_and_object_dimension_detection
 Converting video to image (assembling object from video frames) and analysing the dimensions of the assembled object based on real reference.
----
-python_script:
+
+1. python_script:
 
 
----
-windows_runnable:
+
+2. windows_runnable:
 
 In the "windows_runnable" directory zip file "video_to_images_and_leaf_dimenstions_WinRunnable.7z" when unzipped a directory containing windows runnable is available.
 
