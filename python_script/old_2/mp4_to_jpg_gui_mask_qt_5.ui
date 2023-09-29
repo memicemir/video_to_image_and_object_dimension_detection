@@ -256,7 +256,7 @@
          </font>
         </property>
         <property name="text">
-         <string>Absolut ref.(&quot;coin-like&quot;):</string>
+         <string>Absolut ref.:</string>
         </property>
        </widget>
       </item>

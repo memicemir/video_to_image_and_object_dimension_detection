@@ -196,10 +196,7 @@ class WindowInt(QMainWindow):
         for images in glob.glob1(selectDir, '*'):	
             listOfImagesAnalysis.append(images)
         self.ui.listWidget.addItems(listOfImagesAnalysis)	
-        try:
-            self.ui.listWidget.setCurrentRow(0)
-        except:
-            print('No files "*.mp4 or *.jpg" available for selction in List Widget window!')
+
 
     def convert_mp4_to_jpg(self):
 
@@ -323,37 +320,12 @@ class WindowInt(QMainWindow):
                         
             if str(videoUse.split('.')[-1]) == 'jpg':
                 img = cv2.imread(pathToMp4Video + '/' + videoUse)
-                print (img.shape)
-                print (type(img.shape))
-                height, width, chanel = img.shape
-                print ('width', width, 'height', height)
-
-                maxingOut = max(width, height)
-
-                #cv2.imshow("img", img)
-                #cv2.waitKey() 
-                
-                print ('pathToMp4Video', pathToMp4Video, 'videoUse', videoUse)
-                
-                # to narrow the line more of kept line
-                if self.ui.checkBox_14.isChecked(): # and self.ui.checkBox_20.isChecked():
-                    #draw.line((int(str(self.ui.lineEdit_24.text())), 231, int(str(self.ui.lineEdit_25.text())), 231), width=12)
-                        
-                    thickness = 10 #4
-                    for radius in range (0, maxingOut, 30): #7
-                      
-                        #if str(methodSlice) == '2':
-                        #img = cv2.line(img, (0, radius), (width, radius), (255, 255, 255), thickness)
-                        img = cv2.line(img, (int(str(self.ui.lineEdit_24.text())), radius), (int(str(self.ui.lineEdit_25.text())), radius), (255, 255, 255), thickness)
-
-
                 #cv2.imwrite('./Outputs/assebled_v.jpg' , img)
-                
                 cv2.imwrite('./Outputs/' + str(videoUse.split('.')[-2]) + '.jpg' , img)        
-                #im1.save('./Outputs/' + str(videoUse.split('.')[-2]) + '.jpg')
+            
 
 
-            # if self.ui.checkBox.isChecked(): 
+            # if self.ui.checkBox.isChecked():
 
                 # plt.figure(figsize=(10,10))
                 # plt.subplot(311)                             #plot in the first cell
